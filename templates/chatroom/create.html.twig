@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if has_chatroom %}
+        <h1>Your chatroom has been created, {{ chatroom.creatorInfo.name }}!</h1>
+
+        <p>
+            Each chatroom and its user encryption keys are always unique. The chatroom would be deleted after 7 days.
+        </p>
+
+        <h2>Please select an identity to use</h2>
+        <p>
+            Click on the pairing link for details. Send the other link to your
+            correspondent. The link would no longer be available once the user has logged on in the chatroom.
+        </p>
+
+        {% for qr_code in qr_codes %}
+            <div>
+                <a class="pair_btn" href="{{ path('pair_chatroom', {key_hash: qr_code.key_hash}) }}">{{ qr_code.name }}</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h1>Create a chatroom</h1>
+
+        {% for message in app.flashes('error') %}
+            <div class="flash-error">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <p>To create a room in Palantir, you will be asked to login using a Facebook account.<br/>
+        Only your name is stored in our database.</p>
+
+        <form method="post" action="{{ path('create_post_chatroom') }}">
+            <button class="pair_btn" type="submit" name="submit" value="true">Proceed</button>
+        </form>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% for label, flash in app.flashes('success') %}
+    <div class="flash_message">{{ flash }}</div>
+{% endfor %}
+
+{% for m in decoded_messages %}
+    <div class="message_wrapper">
+        <div class="message_meta">
+            From {{ m.message.author.name | upper }} on {{ m.message.createdAt|date("F j, Y, g:i a") }}
+            {% if m.message.deleteAfter == null %}
+                (Unread)
+            {% else %}
+                (Opened)
+            {% endif %}
+        </div>
+        <div class="message_body">
+            {{ m.decoded | nl2br }}
+        </div>
+    </div>
+{% endfor %}

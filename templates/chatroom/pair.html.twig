@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="">
+
+    <h1>Your Room Key Details: {{ participant.name }}</h1>
+
+    <p>
+        Your chatroom link is located <a href="{{ path('lobby_chatroom', {name: chatroom.name} ) }}">here</a>.
+        Please remember this URL.
+    </p>
+    <p>
+        You will need your ROOM KEY to sign in,
+        <a href="{{ path('download_roomkey_chatroom', {key_hash: key_hash}) }}">click here to download</a>.
+        Please do not share your key to anyone.
+        It will be used to encrypt and decrypt your messages.
+    </p>
+    <div>
+        <p>Upon login, you will be asked to enter a one-time password. Download Google Authenticator
+        or any TOTP Authenticator to pair your mobile device using this QR code:</p>
+        <p><img src="data:image/png;base64, {{ qr_code.image }}"/></p>
+    </div>
+
+    <div>
+        <p></p>
+    </div>
+</div>
+{% endblock %}

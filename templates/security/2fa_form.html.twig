@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>One-time password authentication</h1>
+
+    {% if authenticationError %}
+        <div class="flash_message">{{ authenticationError|trans(authenticationErrorData, 'SchebTwoFactorBundle') }}</div>
+    {% endif %}
+
+    <form class="form" action="{{ checkPathUrl ? checkPathUrl: path(checkPathRoute) }}" method="post">
+        <p class="widget">
+            <input class="frm_input_box"
+                id="_auth_code"
+                type="text"
+                name="{{ authCodeParameterName }}"
+                autofocus
+            />
+        </p>
+
+        {% if isCsrfProtectionEnabled %}
+            <input type="hidden" name="{{ csrfParameterName }}" value="{{ csrf_token(csrfTokenId) }}">
+        {% endif %}
+
+        <button class="pair_btn" type="submit">Submit</button>
+    </form>
+
+    <p class="cancel"><a href="{{ logoutPath }}">{{ "cancel"|trans({}, 'SchebTwoFactorBundle') }}</a></p>
+{% endblock %}

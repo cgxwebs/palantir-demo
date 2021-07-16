@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Welcome to Palantir!</h1>
+
+    <p>Palantir lets you create secure chatrooms and send encrypted messages between two parties.</p>
+
+    <p>&mdash; Each chatroom uses unique asymmetric cryptographic keys for its participants which not only
+    guarantees security, but also verifies authenticity of the messages.<br/>
+    &mdash; Keys are sent as QR codes and requires 2FA verification upon login. Use Google Authenticator
+        or any TOTP app.<br/>
+    &mdash; Messages are only retained for 24 hours while the rooms expire after 7 days.<br/>
+    &mdash; A Facebook account is required for creating rooms.<br/>
+    &mdash; This is a demo app and should not be used for any other purposes.
+    </p>
+
+    <p><a href="/privacy-policy">Privacy Policy</a></p>
+{% endblock %}

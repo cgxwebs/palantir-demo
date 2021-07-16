@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="lobby_header">
+        <h1>Chatroom Lobby ({{ user.name | upper }})</h1>
+        {{ user.chatroom.name }}<br/>
+        until {{ user.chatroom.expiresOn | date("F j, Y, g:i a") }} (UTC)
+    </div>
+
+    <div id="lobby_wrapper">
+        <div id="lobby_messages_wrapper"></div>
+
+        <form method="post" id="frm_wrapper">
+            <textarea id="frm_new_message" name="new_message"></textarea>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token('new_message') }}"/>
+            <button type="submit" id="frm_new_message_submit" name="submit" value="{{ user.keyHash }}">Send
+            Message</button>
+        </form>
+
+        <div id="lobby_notice">
+            <h3>Reminders</h3>
+            <p>
+                Opened messages will be removed after 24 hours. Max of 1000 characters per message.
+                Always logout when done to avoid content exposure.
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        GET_MESSAGES_URL = '{{ url('lobby_messages_chatroom', {name: user.chatroom.name}) }}'
+    </script>
+{% endblock %}

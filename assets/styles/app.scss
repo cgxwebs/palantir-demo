@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,300;0,600;1,400&display=swap');
+
+$background: #222831;
+$foreground: #EEEEEE;
+$accent1: #4F8A8B;
+$accent2: #FBD46D;
+
+body {
+    background-color: $background;
+    font-size: 13pt;
+}
+
+*, html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-weight: 400;
+    color: $foreground;
+    line-height: 1.6em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 1em 0;
+    color: $accent2;
+}
+
+p {
+    margin-bottom: 1.8em;
+}
+
+a {
+    color: $accent2;
+    padding-bottom: 2px;
+    text-decoration: none;
+    border-bottom: 1px dotted $accent1;
+}
+
+input, button, textarea {
+    color: $background;
+}
+
+#main_header {
+    background: $accent1;
+    padding: 2em 1.5em;
+
+    .inner {
+        max-width: 1024px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+#branding a {
+    font-size: 3em;
+    color: $foreground;
+}
+
+#main_nav {
+    padding-top: 1em;
+}
+#main_nav {
+    text-decoration: none;
+    margin-left: 1em;
+    font-size: 1.2em;
+}
+
+#content_wrapper {
+    padding: 1em 1.5em;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+#lobby_header {
+    text-align: center;
+    color: $accent2;
+    padding-bottom: 2em;
+    margin-bottom: 2em;
+    border-bottom: 1px solid $accent2;
+    font-size: 1.2em;
+    line-height: 1.6em;
+}
+
+.message_wrapper {
+    padding: 1em 0;
+}
+
+.message_meta {
+    color: $accent1;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px dotted $accent1;
+}
+
+.flash_message {
+    background: $accent1;
+    padding: 2em;
+    margin: 1em 0;
+}
+
+#frm_wrapper {
+    margin: 3em 0;
+}
+
+#frm_new_message {
+    display: block;
+    background: $background;
+    color: $accent2;
+    padding: 1em;
+    border: 1px solid $accent2;
+    width: 100%;
+    height: 200px;
+}
+
+#frm_new_message_submit, .pair_btn {
+    display: block;
+    margin: 1em auto;
+    background: $background;
+    color: $accent2;
+    font-size: 1.5em;
+    border: 1px solid $accent2;
+    padding: 1em;
+    width: 100%;
+    text-align: center;
+}
+
+.frm_file_input, .frm_input_box {
+    display: block;
+    margin: 1em auto;
+    background: $background;
+    color: $accent2;
+    font-size: 1.5em;
+    border: 1px solid $accent2;
+    padding: 1em;
+    width: 100%;
+    text-align: center;
+}
